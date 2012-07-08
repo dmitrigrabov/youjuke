@@ -1,0 +1,29 @@
+.video-container {
+	text-align:center;
+}
+
+.thumbnail {
+	float:left;
+	height:90px;
+	width:120px;
+	margin: 0 10px 10px 0;
+}
+
+.video-item {
+	height:140px;
+}
+
+.description {
+	height:36px;
+	overflow:hidden;
+}
+
+h2 {
+	margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.video-play, .video-add, .video-remove {
+	margin-top: 8px;
+	margin-right: 10px;
+}

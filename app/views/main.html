@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>youJuke</title>
+       
+        <link rel="stylesheet" media="screen" href="/public/stylesheets/reset.css">
+        <link rel="stylesheet" media="screen" href="/public/stylesheets/bootstrap.css">
+        <link rel="stylesheet" media="screen" href="/public/stylesheets/main.css">
+        
+        <link rel="shortcut icon" type="image/png" href="@{'/public/img/favicon.png'}">
+
+        <script src="/public/javascripts/lib/underscore.js" type="text/javascript"></script>
+        <script src="/public/javascripts/lib/jquery.js" type="text/javascript"></script>
+        <script src="/public/javascripts/lib/mustache.js" type="text/javascript"></script>
+        <script src="/public/javascripts/lib/backbone.js" type="text/javascript"></script>
+        <script src="/public/javascripts/lib/bootstrap.js" type="text/javascript"></script>
+
+		<script src="/public/javascripts/app/models/Video.js" type="text/javascript"></script>
+		<script src="/public/javascripts/app/views/VideoPlayerView.js" type="text/javascript"></script>
+		
+		<script src="/public/javascripts/app/views/VideoItemView.js" type="text/javascript"></script>
+		<script src="/public/javascripts/app/views/VideoListView.js" type="text/javascript"></script>
+		
+		<script src="/public/javascripts/app/collections/VideoList.js" type="text/javascript"></script>
+        <script src="/public/javascripts/app/views/NavigationView.js" type="text/javascript"></script>
+        <script src="/public/javascripts/app/router/AppRouter.js" type="text/javascript"></script>
+        <script src="/public/javascripts/app/main.js" type="text/javascript"></script>
+        
+    </head>
+    <body>
+    	<div class="container">
+	    	<div class="navbar">
+	    		<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a href="#playlist">Playlist</a><li>
+							<li><a href="#history">History</a></li>
+						</ul>
+						<form method="get" id="search-form" class="navbar-search pull-right">
+							<input class="search-query span2" type="text" placeholder="Search" name="phrase" >
+						</form>	
+					</div>
+				</div>
+			</div>
+			<div class="row">
+	    		<div class="span12 video-container">
+	    			<div id="ytplayer"></div>
+	    		</div>
+	    	</div>
+	    	<div class="video-list">
+	    	
+	    	</div>
+    	</div>
+    </body>
+    <script class="video-item-template" type="text/template">
+	    <img src="{{thumbnail}}" class="thumbnail">
+		<h3>{{title}}</h3>
+		<p class="description">{{description}}</p>
+		<a href="#" class="btn btn-mini video-play"><i class="icon-play"></i> Play</a>
+		<a href="#" class="btn btn-mini video-add"><i class="icon-music"></i> Add to playlist</a>
+		<a href="#" class="btn btn-mini video-remove"><i class="icon-remove"></i> Remove</a>
+	</script>
+</html>
