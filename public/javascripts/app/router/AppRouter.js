@@ -40,19 +40,17 @@ YJ.AppRouter = Backbone.Router.extend({
 	},
 	
 	setupPlaylist:  function () {
-		YJ.playlist	= new YJ.VideoList();
+		YJ.playlist	= new YJ.PlayList();
 		YJ.playlistView	= new YJ.VideoListView({'collection': YJ.playlist});
 		YJ.playlistView.title = "Playlist";
 		YJ.playlistView.render();
-		YJ.dispatch.on( 'videoAdd', YJ.playlist.add, YJ.playlist );
 	},
 	
 	setupHistory:  function () {
-		YJ.history	= new YJ.VideoList();
+		YJ.history	= new YJ.HistoryList();
 		YJ.historyView	= new YJ.VideoListView({'collection': YJ.history});
 		YJ.historyView.title = "History";
 		YJ.historyView.render();
-		YJ.dispatch.on( 'videoPlay', YJ.history.add, YJ.history );
 	},
 	
 	setupSearch: function () {

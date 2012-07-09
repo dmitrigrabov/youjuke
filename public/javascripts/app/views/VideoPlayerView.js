@@ -2,6 +2,8 @@ var YJ = YJ || {};
 
 YJ.VideoPlayerView = Backbone.View.extend({
 	
+	videoId: null,
+	
 	initialize: function () {
 		this.setupPlayer();
 		
@@ -23,7 +25,7 @@ YJ.VideoPlayerView = Backbone.View.extend({
 			YJ.player = new YT.Player('ytplayer', {
 				height: '390',
 				width: '640',
-				videoId: 'kE3FAY-NOiU',
+				videoId: 'cLiLSRKms30',
 				events: {
 					'onStateChange': that.stateChange
 				}
@@ -32,12 +34,15 @@ YJ.VideoPlayerView = Backbone.View.extend({
 	},
 	
 	stateChange: function ( event ) {
-		if ( YT.PlayerState.ENDED ) {
-			KP.dispatch.trigger( 'playNextVideo' );
+		if ( event.data === YT.PlayerState.ENDED ) {
+			var url = event.target.getVideoUrl(),
+				id = url.substr ( url.lastIndexOf('v=') + 2 );
+			YJ.dispatch.trigger( 'playNextVideo', id );
 		}
 	},
 	
 	videoPlay: function ( attrs ) {
+		this.videoId = attrs.id;
 		YJ.player.loadVideoById( attrs.id );
 	}
 });

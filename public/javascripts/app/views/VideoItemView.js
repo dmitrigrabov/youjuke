@@ -13,7 +13,7 @@ YJ.VideoItemView = Backbone.View.extend({
 	},
 	
 	initialize: function () {
-		this.model.on( 'destroy', this.remove, this );
+		this.model.on( 'remove', this.remove, this );
 	},
 	
 	render: function () {
@@ -37,6 +37,6 @@ YJ.VideoItemView = Backbone.View.extend({
 	
 	videoRemove: function ( event ) {
 		event.preventDefault();
-		this.model.destroy();
+		this.model.collection.remove( this.model );
 	}
 });
