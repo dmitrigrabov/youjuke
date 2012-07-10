@@ -2,7 +2,7 @@ $(function() {
 	window.YJ = YJ || {};
 
 	// create dispatch object to route messages;
-	YJ.dispatch = _.extend({}, Backbone.Events)
+	YJ.dispatch = _.extend({}, Backbone.Events);
 	
 	// create navigation
 	YJ.navigationView = new YJ.NavigationView();
