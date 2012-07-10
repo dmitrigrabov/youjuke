@@ -25,7 +25,6 @@ YJ.VideoPlayerView = Backbone.View.extend({
 			YJ.player = new YT.Player('ytplayer', {
 				height: '390',
 				width: '640',
-				videoId: 'cLiLSRKms30',
 				events: {
 					'onStateChange': that.stateChange
 				}
@@ -33,6 +32,7 @@ YJ.VideoPlayerView = Backbone.View.extend({
 		}
 	},
 	
+	// detect end of play and trigger next video to play
 	stateChange: function ( event ) {
 		if ( event.data === YT.PlayerState.ENDED ) {
 			var url = event.target.getVideoUrl(),
@@ -41,8 +41,8 @@ YJ.VideoPlayerView = Backbone.View.extend({
 		}
 	},
 	
+	// play video
 	videoPlay: function ( attrs ) {
-		this.videoId = attrs.id;
 		YJ.player.loadVideoById( attrs.id );
 	}
 });

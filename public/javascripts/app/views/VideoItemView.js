@@ -25,16 +25,23 @@ YJ.VideoItemView = Backbone.View.extend({
 		return this;
 	},
 	
+	// Play video
 	videoPlay: function ( event ) {
 		event.preventDefault();
+		
+		// send attributes to trigger cloning
 		YJ.dispatch.trigger( 'videoPlay', this.model.attributes );
 	},
 	
+	// Add item to play list
 	videoAdd: function ( event ) {
 		event.preventDefault();
+		
+		// send attributes to trigger cloning
 		YJ.dispatch.trigger( 'videoAdd', this.model.attributes );
 	},
 	
+	// remove item from it's collection
 	videoRemove: function ( event ) {
 		event.preventDefault();
 		this.model.collection.remove( this.model );

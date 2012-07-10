@@ -4,6 +4,7 @@ YJ.VideoList = Backbone.Collection.extend({
 	
 	model: YJ.Video,
 	
+	// clean data returned by YouTube
 	parse: function ( response ) {
 		var out = [];
 		

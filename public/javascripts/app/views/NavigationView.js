@@ -1,11 +1,12 @@
 var YJ = YJ || {};
 
 YJ.NavigationView = Backbone.View.extend({
-	
+
 	events:{
 		'submit #search-form' : 'search'
 	},
 	
+	// Use current nav bar as view
 	initialize: function () {
 		var el = $('.navbar');
 		
